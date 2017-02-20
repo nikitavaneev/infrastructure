@@ -1,0 +1,1 @@
+Project with cmake, gtest, cpplint and travis-ci
