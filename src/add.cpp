@@ -1,4 +1,4 @@
-#include<add.h>
+кстат#include<add.h>
 CNode* find(CNode* root, int v) {
     while (root) {
         if ((root->value > v) && (root->right != 0)) {
@@ -26,8 +26,8 @@ void PrintTree(CNode** root) {
         if ((*tmp)->right)
             q.push(&(*tmp)->right);
 
-        std::cout << tmp << std::endl << "value:" << (*tmp)->value << std::endl <<
-            "&left: " << &(*tmp)->left << std::endl << "&right: " << &(*tmp)->right
-        << std::endl << std::endl;
+    std::cout << tmp << std::endl << "value:" << (*tmp)->value << std::endl <<
+    "&left: " << &(*tmp)->left << std::endl << "&right: " << &(*tmp)->right
+    << std::endl << std::endl;
     }
 }

@@ -25,7 +25,7 @@ TEST(find, right) {
     EXPECT_EQ(3, res->value);
 }
 
-int main(int ac, char* av[]) { 
-  testing::InitGoogleTest(&ac, av); 
-  return RUN_ALL_TESTS(); 
-} 
+int main(int ac, char* av[]) {
+  testing::InitGoogleTest(&ac, av);
+  return RUN_ALL_TESTS();
+}
