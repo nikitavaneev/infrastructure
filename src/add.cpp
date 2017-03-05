@@ -1,4 +1,4 @@
-кстат#include<add.h>
+#include<add.h>
 CNode* find(CNode* root, int v) {
     while (root) {
         if ((root->value > v) && (root->right != 0)) {
