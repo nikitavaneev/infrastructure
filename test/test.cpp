@@ -1,28 +1,42 @@
 #include <gtest/gtest.h>
-#include "add.h"
+#include "treefind.h"
 
-TEST(find, NullTree) {
-    CNode* tree = 0;
-    CNode* res = find(tree, 1);
-    EXPECT_EQ(res, tree);
+
+TEST(Find, FindDontChangeTree) {
+  CNode* t = CreateTree();
+
+  find(&t, 5);
+
+  ASSERT_EQ(t->val, 4);
+  ASSERT_EQ(t->left->val, 2);
+  ASSERT_EQ(t->right->val, 6);
+  ASSERT_EQ(t->right->left->val, 5);
+  ASSERT_EQ(t->right->right->val, 7);
+  ASSERT_EQ(t->left->left->val, 1);
+  ASSERT_EQ(t->left->right->val, 3);
 }
 
-TEST(find, left) {
-    CNode* tree = new CNode(5);
-    tree->left = new CNode(6);
-    tree->right = new CNode(4);
-    tree->right->right = new CNode(3);
-    CNode* res = find(tree, 6);
-    EXPECT_EQ(6, res->value);
+TEST(Find, CanFind) {
+  CNode* t = CreateTree();
+
+  CNode* n = *(find(&t, 5));
+
+  ASSERT_EQ(n->val, 5);
 }
 
-TEST(find, right) {
-    CNode* tree = new CNode(5);
-    tree->left = new CNode(6);
-    tree->right = new CNode(4);
-    tree->right->right = new CNode(3);
-    CNode* res = find(tree, 3);
-    EXPECT_EQ(3, res->value);
+TEST(Find, FindReturnRightPosition) {
+  CNode* t = CreateTree();
+
+  CNode** n = find(&t, 8);
+  CNode* nl = 0;
+
+  ASSERT_EQ(*n, nl);
+
+  *n = new CNode(8);
+
+  CNode* nw = *(find(&t, 8));
+
+  ASSERT_EQ(nw->val, 8);
 }
 
 int main(int ac, char* av[]) {

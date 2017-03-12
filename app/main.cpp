@@ -1,12 +1,11 @@
-#include "add.h"
+#include "treefind.h"
 #include <iostream>
-int main() {
-    CNode* tree1 = 0;
-    PrintTree(&tree1);
-    CNode* tree = new CNode(5);
-    tree->left = new CNode(6);
-    tree->right = new CNode(4);
-    tree->right->right = new CNode(3);
-    PrintTree(&tree);
-}
 
+int main() {
+  CNode* t = CreateTree();
+  PrintTree(&t);
+
+  int num = 7;
+  CNode** nt = find(&t, num);
+  std::cout << "finded (" << num << "): " << nt << std::endl;
+}
