@@ -1,5 +1,5 @@
-#ifndef INCLUDE_tree_H_
-#define INCLUDE_tree_H_
+#ifndef INCLUDE_TREE_H_
+#define INCLUDE_TREE_H_
 #include <iostream>
 struct CNode {
     CNode* left;
@@ -13,7 +13,7 @@ struct CNode {
     }
 };
 
-CNode* Create(int* , int );
-CNode** find(CNode**, int );
+CNode* Create(int* , int);
+CNode** find(CNode**, int);
 
-#endif  // INCLUDE_tree_H_
+#endif  // INCLUDE_TREE_H_
