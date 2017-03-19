@@ -16,6 +16,6 @@ TEST(CreateTree, balance1_tree) {
     EXPECT_EQ(res->left->right->val, 2);
     EXPECT_EQ(res->right->right->val, 5);
 }
-TEST(CreateTriangleTree, empty_tree) {
+TEST(CreateTree, empty_tree) {
     EXPECT_NO_THROW(Create(NULL, 0));
 }
