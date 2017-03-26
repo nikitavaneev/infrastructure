@@ -1,6 +1,6 @@
-#include "add.h"
-#include <iostream>
+#include "massiv.h"
 
 int main() {
-  std::cout << "2 + 2 = " << add(2, 2) << std::endl;
+
 }
+
