@@ -2,19 +2,19 @@
 #include <stdlib.h>
 #include <vector>
 
-int Find(std::vector<int> a, int r) {
-    int temp = r;
-    while (a[temp] != temp)
-        temp = a[temp];
-    return temp;
+int Find(std::vector<int> a, int v) {
+    int tmp = v;
+    while (a[tmp] != tmp)
+        tmp = a[tmp];
+    return tmp;
 }
-void Union(std::vector<int> *a, std::vector<int> *b, int r1, int r2) {
-     if ((*b)[Find(*a, r1)] > (*b)[Find(*a, r2)]) {
-        (*a)[Find(*a, r2)] = (*a)[Find(*a, r1)];
-        (*b)[Find(*a, r1)]++;
+void Union(std::vector<int> *a, std::vector<int> *b, int v1, int v2) {
+     if ((*b)[Find(*a, v1)] > (*b)[Find(*a, v2)]) {
+        (*a)[Find(*a, v2)] = (*a)[Find(*a, v1)];
+        (*b)[Find(*a, v1)]++;
     } else {
-        (*a)[Find(*a, r1)] = (*a)[Find(*a, r2)];
-        (*b)[Find(*a, r2)]++;
+        (*a)[Find(*a, v1)] = (*a)[Find(*a, v2)];
+        (*b)[Find(*a, v2)]++;
     }
 }
 bool Percolation(std::vector<std::vector<int>> m) {
@@ -23,10 +23,10 @@ bool Percolation(std::vector<std::vector<int>> m) {
     std::vector<int> d(n, 1);
     for (int i = 0; i < n; ++i)
         c[i] = i;
-    for (int i = 0; i < m.size(); ++i)
+    for (unsigned int i = 0; i < m.size(); ++i)
         if (m[0][i]) Union(&c, &d, 0, i+1);
-    for (int i = 0; i < m.size()-1; ++i) {
-        for (int j = 0; j < m.size()-1; ++j) {
+    for (unsigned int i = 0; i < m.size()-1; ++i) {
+        for (unsigned int j = 0; j < m.size()-1; ++j) {
             if (m[i][j] && m[i][j+1]) Union(&c, &d, i*m.size()+j+1,
                 i*m.size()+j+2);
             if (m[i][j] && m[i+1][j]) Union(&c, &d, i*m.size()+j+1,
@@ -36,11 +36,11 @@ bool Percolation(std::vector<std::vector<int>> m) {
              i*m.size()+m.size(),
             (i+1)*m.size()+m.size());
     }
-    for (int j = 0; j < m.size()-1; ++j)
+    for (unsigned int j = 0; j < m.size()-1; ++j)
         if (m[m.size()-1][j] && m[m.size()-1][j+1]) Union(&c, &d,
             (m.size()-1)*m.size()+j+1,
             (m.size()-1)*m.size()+j+2);
-    for (int j = 0; j < m.size(); ++j)
+    for (unsigned int j = 0; j < m.size(); ++j)
         if (m[m.size()-1][j]) Union(&c, &d, n-1, (m.size()-1)*m.size()+j+1);
     if (Find(c, 0) == Find(c, n-1)) {
         return true;
@@ -49,7 +49,6 @@ bool Percolation(std::vector<std::vector<int>> m) {
     }
 }
 double Probability(int n, int k) {
-    unsigned int seed = time(NULL);
     int x, y;
     srand(time(NULL));
     double s = 0, j = 0;

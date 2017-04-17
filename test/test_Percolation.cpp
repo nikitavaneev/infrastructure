@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "Percolation.h"
+#include "add.h"
 
-TEST(Percolation, test) {
+TEST(add, test) {
     std::vector<std::vector<int>> m(3, std::vector<int>(3, 0));
     m[0][0] = 1;
     m[1][0] = 1;
