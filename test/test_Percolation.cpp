@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "add.h"
+#include "Percolation.h"
 
 TEST(add, test) {
     std::vector<std::vector<int>> m(3, std::vector<int>(3, 0));
