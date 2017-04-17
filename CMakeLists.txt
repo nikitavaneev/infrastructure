@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 2.8)
 
 project(infrastructure)
 
@@ -20,14 +20,16 @@ function(enable_cxx_compiler_flag_if_supported flag)
     endif()
 endfunction()
 
-enable_cxx_compiler_flag_if_supported("-Wall")
+
+add_subdirectory(3rdparty)
+
 if (CMAKE_COMPILER_IS_GNUCXX)
+    enable_cxx_compiler_flag_if_supported("-Wall")
     enable_cxx_compiler_flag_if_supported("-Werror")
 endif()
 
 include_directories(include)
 
-add_subdirectory(3rdparty)
 add_subdirectory(src)
 add_subdirectory(app)
 add_subdirectory(test)
