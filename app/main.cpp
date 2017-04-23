@@ -68,6 +68,5 @@ int main() {
     for (int i = 0; i < s; i++) {
         printf("%d: %d\n", i, minw[i]);
     }
-
   }
 }
